@@ -4,19 +4,26 @@
 
 {% block body %}
 
-{# {% set poids = 300 %} #}
-{% set fruit = {'name':'Banane', poids:150, forme:'ronde'} %}
 
-<div>
-    <h1> Hello World </h1>
+{% set michel = {'name':'miCHEL', age:null} %}
+{% set zak = {'name':'ZachariE', age:34} %}
+{% set brahim = {'name':'AbraHam', age:16} %}
+{% set david = {'name':'DaOuda', age:25} %}
+{% set samy = {'name':'SAM', age:42} %}
+{% set users = {michel,zak,brahim,david,samy} %}
 
-<h2>Les filtres de transformations</h2>
 
+{% for user in users %}
 
-<p>Fruit: {{ fruit.name }} </p>
-<p>Poids: {{ fruit.poids }} g.</p>
-<p>forme: {{ fruit.forme }}</p>
-   
-</div>
+    <p>Name: {{user.name | title }}</p>
+
+    {% if user.age %}
+        <p>Age: {{user.age}}</p>
+        {% else %}
+            <p>Age: Undefined</p>
+    {% endif %}
+
+    <hr>
+{% endfor %}
 
 {% endblock %}
