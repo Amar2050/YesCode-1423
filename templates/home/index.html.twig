@@ -8,11 +8,11 @@
 <div>
     <h1> Hello World </h1>
 
-    {% if true %}
+    {% if user.isConnected  %}
     
-        <p>Ok je vois le délire </p>
+       <button>Déconnexion</button>
         {% else %}
-            <p>Mais lui quand c'est faux c'est vrai</p>
+        <button>Connexion</button>
     
     {% endif %}
 

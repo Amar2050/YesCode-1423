@@ -12,6 +12,9 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(){
 
+
+        $user = new stdClass();
+        $user->isConnected = true;
         $author = "Loïs Snowden";
         $article = new stdClass();
         $article->title = "La théorie des fluides gastriques !";
@@ -21,6 +24,7 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', [
             "auteur" => $author,
             "article" => $article,
+            "user"    => $user
         ]);
     }
 }
