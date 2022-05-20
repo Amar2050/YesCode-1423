@@ -4,8 +4,8 @@
 
 {% block body %}
 
-
-{% set fruit = "Banane" %}
+{# {% set poids = 300 %} #}
+{% set fruit = {'name':'Banane', poids:150, forme:'ronde'} %}
 
 <div>
     <h1> Hello World </h1>
@@ -13,7 +13,9 @@
 <h2>Les filtres de transformations</h2>
 
 
-<p>{{ fruit | upper }}</p>
+<p>Fruit: {{ fruit.name }} </p>
+<p>Poids: {{ fruit.poids }} g.</p>
+<p>forme: {{ fruit.forme }}</p>
    
 </div>
 
