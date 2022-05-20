@@ -15,6 +15,7 @@ class HomeController extends AbstractController
 
         $user = new stdClass();
         $user->isConnected = true;
+        $user->age = 28;
         $author = "Loïs Snowden";
         $article = new stdClass();
         $article->title = "La théorie des fluides gastriques !";
