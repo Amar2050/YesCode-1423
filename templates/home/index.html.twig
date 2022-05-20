@@ -8,12 +8,11 @@
 <div>
     <h1> Hello World </h1>
 
+
 <ul>
-    {% for jeu,multi in jeux %}
+    {% for i in 1..12 %}
         <li>
-        {{ loop.index0 }}
-        Titre: {{jeu}} - 
-        Multi: {{ multi +12 }} joueurs
+        {{ i }} Elements 
         </li>
     {% endfor %}
 </ul>
