@@ -10,7 +10,11 @@
 
 <ul>
     {% for jeu,multi in jeux %}
-        <li>Titre: {{jeu}} - Multi: {{ multi }} joueurs</li>
+        <li>
+        {{ loop.index0 }}
+        Titre: {{jeu}} - 
+        Multi: {{ multi +12 }} joueurs
+        </li>
     {% endfor %}
 </ul>
 
