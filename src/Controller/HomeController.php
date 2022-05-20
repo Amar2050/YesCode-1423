@@ -10,13 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
 
-    #[Route('/', name: 'app_home')]
+    #[Route('/', name: 'home_page')]
     public function index(){
         return $this->render('home/index.html.twig', []);
-    }
-    #[Route('/article-list', name: 'articles')]
-    public function articles(){
-        return $this->render('home/articles.html.twig', []);
     }
 
 
