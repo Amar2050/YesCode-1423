@@ -9,8 +9,8 @@
     <h1> Hello World </h1>
 
 <ul>
-    {% for jeu in jeux %}
-        <li> {{jeu}} </li>
+    {% for jeu,multi in jeux %}
+        <li>Titre: {{jeu}} - Multi: {{ multi }} joueurs</li>
     {% endfor %}
 </ul>
 

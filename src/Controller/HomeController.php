@@ -22,7 +22,13 @@ class HomeController extends AbstractController
         $article->intro = "Tout savoir sur le bidon...";
         $article->content = "Bla bla bla ect ect etc etc etc trop cool cool";
 
-        $games = ['BF 2042', 'COD 49', 'FIFA 2034', 'NFL 2077', 'NBA Mutations'];
+        $games = [
+            'BF 2042' => 128, 
+            'COD 49' => 100, 
+            'FIFA 2034' => 2, 
+            'NFL 2077' => 4,
+            'NBA Mutations' => 7
+        ];
 
         return $this->render('home/index.html.twig', [
             "auteur" => $author,
