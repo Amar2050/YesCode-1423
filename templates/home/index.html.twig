@@ -1,29 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Accueil
+{% endblock %}
 
 {% block body %}
 
 
-{% set michel = {'name':'miCHEL', age:null} %}
-{% set zak = {'name':'ZachariE', age:34} %}
-{% set brahim = {'name':'AbraHam', age:16} %}
-{% set david = {'name':'DaOuda', age:25} %}
-{% set samy = {'name':'SAM', age:42} %}
-{% set users = {michel,zak,brahim,david,samy} %}
 
-
-{% for user in users %}
-
-    <p>Name: {{user.name | title }}</p>
-
-    {% if user.age %}
-        <p>Age: {{user.age}}</p>
-        {% else %}
-            <p>Age: Undefined</p>
-    {% endif %}
-
-    <hr>
-{% endfor %}
 
 {% endblock %}
