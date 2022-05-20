@@ -8,13 +8,15 @@
 <div>
     <h1> Hello World </h1>
 
-    <p> {{auteur}} </p>
-    <h2> 
-        {{ article.title }}
-     </h2>
-     <p>{{ article.intro}}</p>
-     <p>{{ article.content}}</p>
+    {% if true %}
+    
+        <p>Ok je vois le délire </p>
+        {% else %}
+            <p>Mais lui quand c'est faux c'est vrai</p>
+    
+    {% endif %}
 
+   
 </div>
 
 {% endblock %}
