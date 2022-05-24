@@ -19,6 +19,9 @@ class Fruit
     #[ORM\Column(type: 'integer', nullable: true)]
     private $poids;
 
+    #[ORM\Column(type: 'smallint')]
+    private $calibre;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Fruit
     public function setPoids(?int $poids): self
     {
         $this->poids = $poids;
+
+        return $this;
+    }
+
+    public function getCalibre(): ?int
+    {
+        return $this->calibre;
+    }
+
+    public function setCalibre(int $calibre): self
+    {
+        $this->calibre = $calibre;
 
         return $this;
     }

@@ -14,18 +14,31 @@ class HomeController extends AbstractController
 
     #[Route('/', name: 'home_page')]
     public function index(EntityManagerInterface $manager, FruitRepository $repo){
-
+        
+      
         $banane = new Fruit();
 
-        $banane->setName("Fin de journée");
-        $banane->setPoids(18);
-        
-        $manager->persist($banane);
-        $manager->flush();
-        dump($banane);
+        $banane->setName("Tuplant des graines");
+        $banane->setPoids(752); // POO setter getter
+        $banane->setCalibre(8); // POO 
+
+        $laurent = new Fruit();
+
+        $laurent->setName("Michoulax");
+        $laurent->setPoids(104);
+        $laurent->setCalibre(50);
+        //------------
+
+        //------------------------
+        $manager->persist($laurent); // 
+        $manager->persist($banane); // 
+        //-------------------------
+
+        $manager->flush(); // excute ! ce qui est persist
+
+        dump($laurent->getName());
 
         $fruits = $repo->findAll();
-
         dump($fruits);
         
         return $this->render('home/index.html.twig', [ 
