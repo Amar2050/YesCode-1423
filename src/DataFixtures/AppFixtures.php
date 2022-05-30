@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use DateTime;
+use Faker;
 use App\Entity\Article;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -14,14 +14,15 @@ class AppFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
+        $faker = Faker\Factory::create();
+
         for ($i=0; $i < 10 ; $i++) { 
 
             $article = new Article();
-            $article->setTitle("Article n°". $i);
-            $article->setIntro('Ceci est une super intro');
-            $article->setContent('<p>Bla bla</p><p>Lorem 10</p><p>Ceci est un contenu</p>');
-            $article->setImage("https://ecolesanahilwa.dz/wp-content/uploads/2020/08/blog-1.jpg");
-            $article->setCreatedAt(new DateTime());
+            $article->setTitle($faker->word($faker->randomDigit()));
+            $article->setIntro($faker->word($faker->randomDigit()));
+            $article->setContent('<p>'. implode('</p><p>', $faker->words(80)) .'</p>');
+            $article->setImage("https://picsum.photos/200/300?random=".$i);
          
             $manager->persist($article);
         }
