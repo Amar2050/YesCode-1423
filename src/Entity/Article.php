@@ -6,6 +6,7 @@ use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
@@ -18,14 +19,28 @@ class Article
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+        minMessage: 'Désolé au moins {{ limit }} characteres requis',
+        maxMessage: 'Oh ! pas plus que {{ limit }} caracteres Michel !',
+    )]
     private $title;
 
+    #[Assert\Length(
+        min: 15,
+        max: 255,
+        minMessage: 'Désolé au moins {{ limit }} characteres requis',
+        maxMessage: 'Maximum {{ limit }} caracteres Michel !',
+    )]
     #[ORM\Column(type: 'string', length: 255)]
     private $intro;
 
+    #[Assert\NotBlank(message:"Ce champs ne peut pas etre vide")]
     #[ORM\Column(type: 'text')]
     private $content;
 
+    #[Assert\Url(message:"Ceci n'est pas un URL")]
     #[ORM\Column(type: 'string', length: 255)]
     private $image;
 
@@ -114,6 +129,7 @@ class Article
 
 
     #[ORM\PrePersist]
+    #[ORM\PreUpdate]
     public function initSlug(){
 
         if (empty($this->slug)) {

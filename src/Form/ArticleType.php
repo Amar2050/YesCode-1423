@@ -22,13 +22,14 @@ class ArticleType extends AbstractType
             ])
             ->add('intro', TextType::class, [ 
                 'label' => "Votre intro", 
-                "attr" => ["placeholder" => "Une petite intro là..."]
+                "attr" => ["placeholder" => "Une petite intro là..."
+                ]
             ])
             ->add('content', TextareaType::class, [ 
                 'label' => "Contenu", 
                 "attr" => ["placeholder" => "ici une belle histoire"]
             ])
-            ->add('image', UrlType::class, [ 
+            ->add('image', TextType::class, [ 
                 'label' => "Url de l'image", 
                 "attr" => ["placeholder" => "Le lien de votre image !"]
             ])
