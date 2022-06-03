@@ -50,6 +50,10 @@ class Article
     #[ORM\Column(type: 'string', length: 255)]
     private $slug;
 
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'articles')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $author;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -144,5 +148,17 @@ class Article
         if (empty($this->createdAt)) {
            $this->createdAt = new \DateTime();
         }
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): self
+    {
+        $this->author = $author;
+
+        return $this;
     }
 }

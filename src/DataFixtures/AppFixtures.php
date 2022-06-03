@@ -15,19 +15,9 @@ class AppFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        $faker = Faker\Factory::create("ar_DZ");
-
-        for ($i=0; $i < 10 ; $i++) { 
-
-            $article = new Article();
-            $article->setTitle($faker->word($faker->randomDigit()));
-            $article->setIntro($faker->word($faker->randomDigit()));
-            $article->setContent('<p>'. implode('</p><p>', $faker->words(80)) .'</p>');
-            $article->setImage("https://picsum.photos/200/300?random=".$i);
-         
-            $manager->persist($article);
-        }
-
+        $faker = Faker\Factory::create("de_DE");
+        
+        $users= [];
         $genres = ['male', 'female'];
 
         for ($i=0; $i <= 20 ; $i++) { 
@@ -48,8 +38,25 @@ class AppFixtures extends Fixture
                  ->setHash("password");
         
             $manager->persist($user);
+            $users[] = $user;
       
         }
+
+        for ($i=0; $i < 15 ; $i++) { 
+
+
+            $author = $users[mt_rand(0, count($users) -1 )];
+
+            $article = new Article();
+            $article->setTitle($faker->word($faker->randomDigit()));
+            $article->setIntro($faker->word($faker->randomDigit()));
+            $article->setContent('<p>'. implode('</p><p>', $faker->words(80)) .'</p>');
+            $article->setImage("https://picsum.photos/200/300?random=".$i);
+            $article->setAuthor($author);
+         
+            $manager->persist($article);
+        }
+
 
         $manager->flush();
     }
